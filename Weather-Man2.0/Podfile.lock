@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.8.2)
+  - SwiftyJSON (4.3.0)
+  - WXKDarkSky (2.2.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - SwiftyJSON
+  - WXKDarkSky (~> 2.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SwiftyJSON
+    - WXKDarkSky
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  WXKDarkSky: d532c1fc3b3071fd7136c1ae3c78dc23e50a78f9
+
+PODFILE CHECKSUM: 9545b511f5acc24ab114fbb41abab69018cc07be
+
+COCOAPODS: 1.6.0
