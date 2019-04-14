@@ -14,13 +14,25 @@ import MapKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var TopClothing: UILabel!
+    
+    @IBOutlet weak var BottomClothing: UILabel!
+    
+    @IBOutlet weak var OuterClothing: UILabel!
+    let dummyClothing = clothing.init(name: "", temperature: 0, precipitationType: [], type: .TOP, worn: false)
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationServices()
+        
+    }
 
     func setupLocationManager(){
         locationManager.delegate = self
@@ -100,35 +112,145 @@ class FirstViewController: UIViewController {
             }
             print(startHourInd)
             print(endHourInd)
-            var bestTemp = 1000
-            var worstTemp = -460
-           // var bestPrecip
-            
+            var bestTemp = -460.0
+            var worstTemp = 1000.0
+            var bestPrecipProbability = 1.01
+            var worstPrecipProbability = -1.0
+            var isRain = false
+            var isSnow = false
+            var isSleet = false
             
             for val in startHourInd...endHourInd {
-                
-                print(hourlyData[val]["temperature"])
-                print(hourlyData[val]["cloudCover"])
-                print(hourlyData[val]["precipProbability"])
-                if(hourlyData[val]["precipProbability"] > 0){
-                    
-                    if((hourlyData[val]["precipType"]) == "rain"){
-                        
-                    }
-                    
+                let temp = hourlyData[val]["temperature"]
+                if(temp.double! > bestTemp){
+                    bestTemp = temp.double!
                 }
-                count += 1
-                print(count)
+                if (temp.double! < worstTemp){
+                    worstTemp = temp.double!
+                }
+              //  print(hourlyData[val]["cloudCover"])
+                let precip = hourlyData[val]["precipProbability"]
+                if(precip.double! < bestPrecipProbability){
+                    bestPrecipProbability = precip.double!
+                }
+                if(precip.double! > worstPrecipProbability){
+                    worstPrecipProbability = precip.double!
+                }
+                if(precip.double! > 0.5){
+                    let type = (hourlyData[val]["precipType"])
+                    if(type.string == "rain"){
+                        isRain = true
+                    }
+                    if(type.string == "snow"){
+                        isSnow = true
+                    }
+                    if(type.string == "sleet"){
+                        isSleet = true
+                    }                
+                }
             }
-           
-            print(lat)
-            print(lon)
-            
-            //   print(json)
-            
+            self.toWear(bestTemp: bestTemp, worstTemp: worstTemp, bestPP: bestPrecipProbability, worstPP: worstPrecipProbability, isRain: isRain, isSnow: isSnow, isSleet: isSleet)
+            print(bestTemp)
+            print(worstTemp)
+            print(bestPrecipProbability)
+            print(worstPrecipProbability)
+            print(isSleet)
+            print(isSnow)
+            print(isRain)
         }
     }
+    
+    func toWear(bestTemp: Double, worstTemp: Double, bestPP: Double, worstPP: Double, isRain : Bool, isSnow: Bool, isSleet: Bool){
+        for clothing in preferences {
+            print(clothing.name)
+            print(clothing.temperature)
+        }
+        var topBestDiff = 1000.0
+        var bottomBestDiff = 1000.0
+        var bestTop = dummyClothing
+        var bestBottom = dummyClothing
+        var outer = dummyClothing
+        var listOfPrecip:[clothing] = []
+       
+        for top in topList {
+            if (abs(bestTemp - top.temperature) < topBestDiff){
+                topBestDiff = abs(bestTemp - top.temperature)
+                bestTop = top
+                TopClothing.text = top.name
+            }
+        }
+        for lower in bottomList {
+            if (abs(bestTemp - lower.temperature) < bottomBestDiff){
+                bottomBestDiff = abs(bestTemp - lower.temperature)
+                bestBottom = lower
+                BottomClothing.text = lower.name
+            }
+        }
+            if (isRain){
+                for outer in outerwearList {
+                    if(outer.precipitationType.contains(Precipitation.RAIN)){
+                        listOfPrecip.append(outer)
+                    }
+                }
+            }
+            if(isSnow){
+                for outer in outerwearList{
+                    if(outer.precipitationType.contains(Precipitation.SNOW)){
+                        listOfPrecip.append(outer)
+                    }
+                }
+            }
+            if(isSleet){
+                for outer in outerwearList{
+                    if(outer.precipitationType.contains(Precipitation.SLEET)){
+                        listOfPrecip.append(outer)
+                    }
+            }
+        }
+        var outerwearBestTempDiff = 1000.0
+        var bestOuterClothing = dummyClothing
+        if(listOfPrecip.count > 0){
+        for outer in listOfPrecip {
+            if(abs(worstTemp - outer.temperature) > outerwearBestTempDiff){
+                outerwearBestTempDiff = abs(worstTemp - outer.temperature)
+                bestOuterClothing = outer
+                OuterClothing.text = outer.name;
+            }
+        }
+        } else {
+            var bestOuterClothingNoPP = dummyClothing
+            var bestOuterTempDiff = 100.0
+            for outerwear in outerwearList {
+                if(abs(outerwear.temperature - worstTemp) < bestOuterTempDiff){
+                    bestOuterTempDiff = abs(outerwear.temperature - worstTemp)
+                    
+                    bestOuterClothingNoPP = outerwear
+                    OuterClothing.text = outerwear.name
+                }
+                
+            }
+            
+            if (bestOuterTempDiff > 10){
+                OuterClothing.text = ""
+                //bestOuterClothing = bestOuterClothingNoPP
+            }
+        }
+        
+//        TopClothing.text = bestTop.name
+//        BottomClothing.text = bestBottom.name
+//        if (!(bestOuterClothing.name == "")) {
+//            OuterClothing.text = bestOuterClothing.name
+//        }
+        
+        print(bestTop.name)
+        print(bestBottom.name)
+        print(bestOuterClothing.name)
+    }
 }
+
+        
+    
+
 
 extension FirstViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
