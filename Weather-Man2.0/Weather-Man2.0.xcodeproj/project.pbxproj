@@ -13,6 +13,10 @@
 		8B9613FE22628C910005A38D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9613FD22628C910005A38D /* Assets.xcassets */; };
 		8B96140122628C910005A38D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9613FF22628C910005A38D /* LaunchScreen.storyboard */; };
 		8B96142B2262C5EE0005A38D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B96142A2262C5EE0005A38D /* SecondViewController.swift */; };
+		8B96142D22638CE90005A38D /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B96142C22638CE90005A38D /* snow.jpg */; };
+		8B96142F22638F450005A38D /* sunny.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B96142E22638F450005A38D /* sunny.jpg */; };
+		8B96143122638F490005A38D /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B96143022638F490005A38D /* rain.jpg */; };
+		8B96143322638F4E0005A38D /* sleet.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8B96143222638F4E0005A38D /* sleet.jpg */; };
 		DFC45ED694087C47F463E088 /* Pods_Weather_Man2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E424B94C9669215E11CC2D9 /* Pods_Weather_Man2_0.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		8B96140022628C910005A38D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B96140222628C910005A38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B96142A2262C5EE0005A38D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
+		8B96142C22638CE90005A38D /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
+		8B96142E22638F450005A38D /* sunny.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunny.jpg; sourceTree = "<group>"; };
+		8B96143022638F490005A38D /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
+		8B96143222638F4E0005A38D /* sleet.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sleet.jpg; sourceTree = "<group>"; };
 		F52434C0223854ABF8466CF4 /* Pods-Weather-Man2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather-Man2.0.release.xcconfig"; path = "Target Support Files/Pods-Weather-Man2.0/Pods-Weather-Man2.0.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +94,10 @@
 				8B9613FA22628C910005A38D /* Main.storyboard */,
 				8B9613FD22628C910005A38D /* Assets.xcassets */,
 				8B9613FF22628C910005A38D /* LaunchScreen.storyboard */,
+				8B96142C22638CE90005A38D /* snow.jpg */,
+				8B96143022638F490005A38D /* rain.jpg */,
+				8B96142E22638F450005A38D /* sunny.jpg */,
+				8B96143222638F4E0005A38D /* sleet.jpg */,
 				8B96140222628C910005A38D /* Info.plist */,
 			);
 			path = "Weather-Man2.0";
@@ -152,7 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B96140122628C910005A38D /* LaunchScreen.storyboard in Resources */,
+				8B96143122638F490005A38D /* rain.jpg in Resources */,
+				8B96143322638F4E0005A38D /* sleet.jpg in Resources */,
 				8B9613FE22628C910005A38D /* Assets.xcassets in Resources */,
+				8B96142F22638F450005A38D /* sunny.jpg in Resources */,
+				8B96142D22638CE90005A38D /* snow.jpg in Resources */,
 				8B9613FC22628C910005A38D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "example.com.Weather-Man2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -393,7 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "example.com.Weather-Man2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import WXKDarkSky
 import Alamofire
 import SwiftyJSON
 import MapKit
@@ -19,18 +18,29 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var BottomClothing: UILabel!
     
     @IBOutlet weak var OuterClothing: UILabel!
+    
+    
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    
+    @IBOutlet weak var whiteBox: UIImageView!
     let dummyClothing = clothing.init(name: "", temperature: 0, precipitationType: [], type: .TOP, worn: false)
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
+        //getWeather(42.3601, 71.0589)
+        whiteBox.alpha = 0.5
+        
+
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationServices()
+        
         
     }
 
@@ -136,17 +146,25 @@ class FirstViewController: UIViewController {
                 if(precip.double! > worstPrecipProbability){
                     worstPrecipProbability = precip.double!
                 }
+                let image = UIImage(named: "sunny.jpg")
+                self.backgroundImage.image = image
+                self.backgroundImage.alpha = 0.5
                 if(precip.double! > 0.5){
                     let type = (hourlyData[val]["precipType"])
                     if(type.string == "rain"){
+                        let image = UIImage(named: "rain.jpg")
+                    
                         isRain = true
                     }
                     if(type.string == "snow"){
+                        let image = UIImage(named: "snow.jpg")
                         isSnow = true
                     }
                     if(type.string == "sleet"){
+                        let image = UIImage(named: "sleet.jpg")
                         isSleet = true
-                    }                
+                    }
+                    
                 }
             }
             self.toWear(bestTemp: bestTemp, worstTemp: worstTemp, bestPP: bestPrecipProbability, worstPP: worstPrecipProbability, isRain: isRain, isSnow: isSnow, isSleet: isSleet)
@@ -173,37 +191,46 @@ class FirstViewController: UIViewController {
         var listOfPrecip:[clothing] = []
        
         for top in topList {
+            if (top.worn) {
             if (abs(bestTemp - top.temperature) < topBestDiff){
                 topBestDiff = abs(bestTemp - top.temperature)
                 bestTop = top
                 TopClothing.text = top.name
             }
+            }
         }
         for lower in bottomList {
+            if (lower.worn) {
             if (abs(bestTemp - lower.temperature) < bottomBestDiff){
                 bottomBestDiff = abs(bestTemp - lower.temperature)
                 bestBottom = lower
                 BottomClothing.text = lower.name
             }
+            }
         }
             if (isRain){
                 for outer in outerwearList {
+                    if (outer.worn) {
                     if(outer.precipitationType.contains(Precipitation.RAIN)){
                         listOfPrecip.append(outer)
-                    }
+                        }}
                 }
             }
             if(isSnow){
                 for outer in outerwearList{
+                    if (outer.worn) {
                     if(outer.precipitationType.contains(Precipitation.SNOW)){
                         listOfPrecip.append(outer)
+                    }
                     }
                 }
             }
             if(isSleet){
                 for outer in outerwearList{
+                    if (outer.worn) {
                     if(outer.precipitationType.contains(Precipitation.SLEET)){
                         listOfPrecip.append(outer)
+                    }
                     }
             }
         }
@@ -211,21 +238,25 @@ class FirstViewController: UIViewController {
         var bestOuterClothing = dummyClothing
         if(listOfPrecip.count > 0){
         for outer in listOfPrecip {
+            if (outer.worn) {
             if(abs(worstTemp - outer.temperature) > outerwearBestTempDiff){
                 outerwearBestTempDiff = abs(worstTemp - outer.temperature)
                 bestOuterClothing = outer
                 OuterClothing.text = outer.name;
+            }
             }
         }
         } else {
             var bestOuterClothingNoPP = dummyClothing
             var bestOuterTempDiff = 100.0
             for outerwear in outerwearList {
+                if (outerwear.worn) {
                 if(abs(outerwear.temperature - worstTemp) < bestOuterTempDiff){
                     bestOuterTempDiff = abs(outerwear.temperature - worstTemp)
                     
                     bestOuterClothingNoPP = outerwear
                     OuterClothing.text = outerwear.name
+                }
                 }
                 
             }

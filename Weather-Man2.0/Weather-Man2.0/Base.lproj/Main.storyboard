@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Outfit-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Weather_Man2_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,6 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCM-8r-gKe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKh-0l-gaB">
+                                <rect key="frame" x="61" y="145" width="306" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your outfit today is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWU-zg-XWv">
                                 <rect key="frame" x="87" y="157" width="240" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -48,20 +56,28 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="CCM-8r-gKe" secondAttribute="trailing" id="j6y-NS-caS"/>
+                            <constraint firstItem="CCM-8r-gKe" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="opx-mi-Sjz"/>
+                            <constraint firstItem="CCM-8r-gKe" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="sOm-nY-mNC"/>
+                            <constraint firstItem="CCM-8r-gKe" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="t0R-Qa-AQg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Outfit" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="BottomClothing" destination="mgI-hk-Q59" id="ZpH-ix-DGP"/>
                         <outlet property="OuterClothing" destination="8aN-mb-kNC" id="Jao-oJ-vpi"/>
                         <outlet property="TopClothing" destination="Ahb-WV-u9w" id="cPG-Kt-aAJ"/>
+                        <outlet property="backgroundImage" destination="CCM-8r-gKe" id="Zrk-c9-2HL"/>
+                        <outlet property="whiteBox" destination="FKh-0l-gaB" id="eGz-pr-QTn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
         </scene>
-        <!--Second-->
+        <!--Preferences-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Weather_Man2_0" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,15 +85,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-Yc-9rR" userLabel="TempVal">
-                                <rect key="frame" x="260" y="203" width="93" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iku-C9-ZeT">
-                                <rect key="frame" x="22" y="249" width="371" height="1141"/>
+                                <rect key="frame" x="13" y="249" width="371" height="561"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shorts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HB0-fj-Xgm">
@@ -88,14 +97,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6aZ-Cr-5fS" userLabel="ShortsSwitch">
-                                        <rect key="frame" x="139" y="33" width="49" height="31"/>
+                                        <rect key="frame" x="134" y="33" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="shortsSwitchToggled:" destination="8rJ-Kc-sve" eventType="valueChanged" id="1z4-XB-2Ni"/>
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="e9P-16-Hog" userLabel="Shorts Slider">
-                                        <rect key="frame" x="232" y="34" width="118" height="30"/>
+                                        <rect key="frame" x="228" y="33" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="shortsSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="wc2-0W-lDG"/>
@@ -112,7 +121,6 @@
                                         <rect key="frame" x="135" y="74" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="pantsSwitchToggled:" destination="8rJ-Kc-sve" eventType="valueChanged" id="fVj-7Z-x5r"/>
                                             <action selector="tShirtSwitchToggled:" destination="8rJ-Kc-sve" eventType="valueChanged" id="6H2-i4-CB2"/>
                                         </connections>
                                     </switch>
@@ -133,6 +141,9 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1G-Wp-qqs" userLabel="Pants Switch">
                                         <rect key="frame" x="135" y="126" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="pantsSwitchToggled:" destination="8rJ-Kc-sve" eventType="valueChanged" id="uJP-gb-bKg"/>
+                                        </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n3x-ql-8IO" userLabel="Pants Slider">
                                         <rect key="frame" x="228" y="127" width="118" height="30"/>
@@ -156,7 +167,7 @@
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="i3o-qc-3bh" userLabel="Skirt Slider">
-                                        <rect key="frame" x="235" y="178" width="118" height="30"/>
+                                        <rect key="frame" x="228" y="173" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="skirtSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="9eg-we-5wx"/>
@@ -177,7 +188,7 @@
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-au-Htc" userLabel="Longsleeves Slider">
-                                        <rect key="frame" x="235" y="227" width="118" height="30"/>
+                                        <rect key="frame" x="230" y="222" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="longsleevesSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="VQk-AQ-rhJ"/>
@@ -198,7 +209,7 @@
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="sea-nA-Mum" userLabel="Capris Slider">
-                                        <rect key="frame" x="235" y="270" width="118" height="30"/>
+                                        <rect key="frame" x="228" y="270" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="caprisSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="TGF-Lt-9Mh"/>
@@ -219,7 +230,7 @@
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="h6k-aO-8oS" userLabel="Jacket Slider">
-                                        <rect key="frame" x="235" y="312" width="118" height="30"/>
+                                        <rect key="frame" x="230" y="312" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="jacketSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="TwF-Aw-k4c"/>
@@ -261,7 +272,7 @@
                                         </connections>
                                     </switch>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-il-Iuy" userLabel="Hoodie Slider">
-                                        <rect key="frame" x="228" y="410" width="118" height="30"/>
+                                        <rect key="frame" x="230" y="406" width="118" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="hoodieSliderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="Y7b-8B-fmP"/>
@@ -285,13 +296,6 @@
                                         <rect key="frame" x="130" y="460" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </switch>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="NYb-qX-CBj" userLabel="Horizontal SliderOther1">
-                                        <rect key="frame" x="230" y="460" width="118" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="sliderOther1Changed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="B78-6b-jiM"/>
-                                        </connections>
-                                    </slider>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Other" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrZ-Gw-ukb" userLabel="OtherTF2">
                                         <rect key="frame" x="15" y="511" width="83" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -310,13 +314,6 @@
                                         <rect key="frame" x="130" y="510" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </switch>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-31-82Y" userLabel="Horizontal SliderOther2">
-                                        <rect key="frame" x="230" y="510" width="118" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <action selector="sliderOther2Changed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="UHq-AZ-Sgv"/>
-                                        </connections>
-                                    </slider>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Other" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnN-tb-OJC" userLabel="OtherTF3">
                                         <rect key="frame" x="15" y="562" width="83" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,27 +364,45 @@
                                             <action selector="sliderOther4Changed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="dqV-NM-gWM"/>
                                         </connections>
                                     </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="NYb-qX-CBj" userLabel="Horizontal SliderOther1">
+                                        <rect key="frame" x="228" y="454" width="118" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="sliderOther1Changed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="B78-6b-jiM"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ywM-31-82Y" userLabel="Horizontal SliderOther2">
+                                        <rect key="frame" x="228" y="512" width="118" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="sliderOther2Changed:" destination="8rJ-Kc-sve" eventType="valueChanged" id="UHq-AZ-Sgv"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ºF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glC-TM-Hg3">
-                                <rect key="frame" x="300" y="211" width="75" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature (ºF)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPK-dy-EXI">
+                                <rect key="frame" x="236" y="188" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPK-dy-EXI">
-                                <rect key="frame" x="260" y="188" width="106" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-Yc-9rR" userLabel="TempVal">
+                                <rect key="frame" x="270" y="217" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="TPK-dy-EXI" secondAttribute="trailing" constant="48" id="WeP-ic-yhJ"/>
+                            <constraint firstItem="cvj-Yc-9rR" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="180" id="cz8-sS-ASJ"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="cvj-Yc-9rR" secondAttribute="trailing" constant="100" id="fxc-Kd-2FO"/>
+                            <constraint firstItem="TPK-dy-EXI" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="144" id="yhL-wo-qCH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Preferences" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="caprisSlider" destination="sea-nA-Mum" id="Zl9-o8-3bR"/>
                         <outlet property="caprisSwitch" destination="Dl6-KU-5Ym" id="PKp-NE-ifD"/>

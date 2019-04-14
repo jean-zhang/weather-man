@@ -121,7 +121,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize = CGSize(width: self.view.frame.width - 100, height: self.view.frame.height + 500);
+        scrollView.contentSize = CGSize(width: self.view.frame.width - 100, height: self.view.frame.height + 50);
         scrollView.isScrollEnabled = true
         // Do any additional setup after loading the view.
         let line1 = line.init(textField: otherTF1, switchButton: switchOther1, slider: sliderOther1, label: otherLabel1)
